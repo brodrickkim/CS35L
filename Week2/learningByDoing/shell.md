@@ -418,3 +418,27 @@ fi
 
 ```
 
+#### Example 13 - Shell script reading from STDIN 
+
+* Commands inherit their standard input from the process that starts them. 
+* When our script provides a standard input for each command that it runs, the shell automatically reads from stdin. 
+
+`searchRishab.sh` has below content
+
+```
+#!/bin/sh
+
+grep 'rishab'
+```
+
+Then below commands are equivalent:
+
+```
+cat tmpwords.txt | grep 'rishab'
+```
+
+is the same as
+
+```
+cat tmpwords.txt | ./searchRishab.sh
+```
