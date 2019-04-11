@@ -259,7 +259,7 @@ echo ${arr[0]//r/R}	 # pRakhaR
 ```
 
 
-#### Example 6 - Loops
+#### Example 8 - Loops
 
 Copy paste below code into the file 'loops.sh'
 
@@ -295,7 +295,7 @@ done
 
 * we have `break` and `continue` in shell too - check them out
 
-#### Example 7 - Debugging shell scripts
+#### Example 9 - Debugging shell scripts
 
 You can debug your shell scripts by setting execution tracing to on or off.
 
@@ -327,7 +327,7 @@ Alternatively, you can start your shell script with the -x flag as below:
 bash -x loops.sh 
 ```
 
-#### Example 9 - Iterating through commandline arguments
+#### Example 10 - Iterating through commandline arguments
 
 ```
 #!/bin/bash
@@ -337,7 +337,7 @@ do
 done
 ```
 
-#### Example 10 - Iterating through files in the current directory using `ls`
+#### Example 11 - Iterating through files in the current directory using `ls`
 
 ```
 #!/bin/bash
@@ -348,7 +348,7 @@ done
 ```
 
 
-#### Example 11 - Exit status in shell scripts
+#### Example 12 - Exit status in shell scripts
 
 Typical Values Of Exit Status On Bourne Shell
 0 – Success.
