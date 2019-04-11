@@ -1,3 +1,5 @@
+https://forms.gle/ySWYFYGkLj1doALG8
+
 # To Be Updated
 # Week 2 - Lecture 1
 
