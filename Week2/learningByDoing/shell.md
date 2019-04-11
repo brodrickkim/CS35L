@@ -16,7 +16,7 @@ echo "Hello World :D"
 
 * Try running the file using `./helloWorld.sh`.
 * Any errors?
-* Before fixing error , run the command `echo $?`  (note the output number) (we'll discuss exit codes again)
+* Before fixing error , run the command `echo $?`  (note the output number) (we'll discuss this again)
 * Fix by making sure that file contains executable permission
 
 
