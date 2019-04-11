@@ -16,7 +16,9 @@ echo "Hello World :D"
 
 * Try running the file using `./helloWorld.sh`.
 * Any errors?
+* Before fixing error , run the command `echo $?`  (note the output number) (we'll discuss exit codes again)
 * Fix by making sure that file contains executable permission
+
 
 ```
 chmod +x helloWorld.sh
@@ -144,7 +146,7 @@ echo "The sum is $sum"
 
 Details: nth argument(starting from 1 not 0) can be accessed by $n. If n > 9, then use {} => use `echo "10th arg is {10}"`
 
-#### Example - 6 (if, else statements)
+#### Example - 6 (if, else statements ; case esac )
 
 Copy paste below code into the file `greater.sh`
 
@@ -162,7 +164,99 @@ fi
 ```
 
 * What is $1, $2, $#?
+
 * What is -gt?
+
+```
+#!/bin/sh
+
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+   echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+   echo "a is less than b"
+else
+   echo "None of the condition met"
+fi
+```
+
+* Check and see what `case ... esac` is.
+
+```
+CARS="bmw"
+  
+#Pass the variable in string 
+case "$CARS" in 
+    #case 1 
+    "mercedes") echo "Headquarters - Affalterbach, Germany" ;; 
+      
+    #case 2 
+    "audi") echo "Headquarters - Ingolstadt, Germany" ;; 
+      
+    #case 3 
+    "bmw") echo "Headquarters - Chennai, Tamil Nadu, India" ;; 
+esac 
+
+```
+
+#### Example 7 - Arrays
+
+src - https://www.geeksforgeeks.org/array-basics-shell-scripting-set-1/
+
+```
+#! /bin/bash 
+# To declare static Array 
+arr=(prakhar ankit 1 rishabh manish abhinav) 
+
+# To print all elements of array 
+echo ${arr[@]}	 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[*]}	 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[@]:0} # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[*]:0} # prakhar ankit 1 rishabh manish abhinav 
+
+# To print first element 
+echo ${arr[0]}	 # prakhar 
+echo ${arr}		 # prakhar 
+
+# To print particular element 
+echo ${arr[3]}	 # rishabh 
+echo ${arr[1]}	 # ankit 
+
+# To print elements from a particular index 
+echo ${arr[@]:0} # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[@]:1} # ankit 1 rishabh manish abhinav 
+echo ${arr[@]:2} # 1 rishabh manish abhinav 
+echo ${arr[0]:1} # rakhar 
+
+# To print elements in range 
+echo ${arr[@]:1:4} # ankit 1 rishabh manish 
+echo ${arr[@]:2:3} # 1 rishabh manish 
+echo ${arr[0]:1:3} # rak 
+
+# Length of Particular element 
+echo ${#arr[0]}	 # 7 
+echo ${#arr}	 # 7 
+
+# Size of an Array 
+echo ${#arr[@]}	 # 6 
+echo ${#arr[*]}	 # 6 
+
+# Search in Array 
+echo ${arr[@]/*[aA]*/} # 1 
+
+# Replacing Substring Temporary 
+echo ${arr[@]//a/A}	 # prAkhAr Ankit 1 rishAbh mAnish AbhinAv 
+echo ${arr[@]}		 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[0]//r/R}	 # pRakhaR 
+
+```
 
 
 #### Example 6 - Loops
@@ -180,7 +274,7 @@ Learn syntax of :
 
 #while loop illustration
 
-echo "While loop below\n"
+echo "While loop below"
 COUNT=6
 while [ $COUNT -gt 0 ] 
 do
@@ -190,7 +284,7 @@ done
 
 #for loop illustration
 
-echo "\nFor loop below\n"
+echo "For loop below"
 
 files=`ls`
 for f in $files 
@@ -198,6 +292,8 @@ do
 echo $f 
 done
 ```
+
+* we have `break` and `continue` in shell too - check them out
 
 #### Example 7 - Debugging shell scripts
 
@@ -230,3 +326,95 @@ Alternatively, you can start your shell script with the -x flag as below:
 ```
 bash -x loops.sh 
 ```
+
+#### Example 9 - Iterating through commandline arguments
+
+```
+#!/bin/bash
+for var in "$@"
+do
+    echo "$var"
+done
+```
+
+#### Example 10 - Iterating through files in the current directory using `ls`
+
+```
+#!/bin/bash
+for var in `ls`
+do
+    echo "$var"
+done
+```
+
+
+#### Example 11 - Exit status in shell scripts
+
+Typical Values Of Exit Status On Bourne Shell
+0 – Success.
+1 – A built-in command failure.
+2 – A syntax error has occurred.
+3 – Signal received that is not trapped
+
+We can use these to decide control of next statements in the shell script.
+
+Mainly concerned with status 0 or not.
+
+Create a file `tmpwords.txt` with below content
+
+
+```
+cherishable
+flourishable
+imperishability
+imperishable
+imperishableness
+imperishably
+nonperishable
+nonperishables
+nourishable
+perishability
+perishabilty
+perishable
+perishableness
+perishables
+perishably
+unnourishable
+unperishable
+unperishableness
+unperishably
+```
+
+Try out this shell script
+
+`$?` - status of previous command
+
+```
+
+#!/bin/bash
+
+echo "Looking for 'rishab' in the words file , output below"
+cat tmpwords.txt | grep "rishab"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened"
+fi
+
+
+echo "Looking for 'rishabdoshi' in the words file, output below"
+cat tmpwords.txt | grep "rishabdoshi"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened"
+	echo "Status code was $?" # what does this print? How do you explain this?
+fi
+
+
+```
+
