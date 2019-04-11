@@ -63,9 +63,39 @@ The substitute flag /g (global replacement) specifies the sed command to replace
 
 #### Example 4
 
+
+```
+liam@yahoo.com
+noah@yahoo.com
+william@yahoo.com
+james@yahoo.com
+logan@yahoo.com
+benjamin@yahoo.com
+mason@yahoo.com
+elijah@yahoo.com
+oliver@yahoo.com
+emma@yahoo.com
+olivia@yahoo.com
+ava@yahoo.com
+isabella@yahoo.com
+sophia@yahoo.com
+mia@yahoo.com
+charlotte@yahoo.com
+amelia@yahoo.com
+evelyn@yahoo.com
+Hi
+Ok
+There
+How are you gmail
+Ok google
+yahoo! This was awesome
+yahoo was a popular search website
+```
+
 ```
 sed -E 's/^[a-z].*@yahoo\.com/rishab@gmail\.com/g' emails.txt 
 ```
+
 
 * Notice the output, what did this command do?
 <br><b>Answer:</b><br>
