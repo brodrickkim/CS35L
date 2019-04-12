@@ -442,3 +442,52 @@ is the same as
 ```
 cat tmpwords.txt | ./searchRishab.sh
 ```
+
+#### Example 14 - Exiting with a status code
+
+
+create a file `status.sh`
+
+```
+#!/bin/sh
+
+#some error occured
+exit 127 #this is how to exit with a status code
+```
+
+Run below commands
+
+* `./status/sh`
+* `echo $?` -> gives 127
+
+Standard Error Codes:
+https://www.tldp.org/LDP/abs/html/exitcodes.html
+
+
+#### Example 15 - Writing to stderr
+
+Consider same example as 12 above.
+
+We will modify the script so that, whenever we have a non-zero exit code we just print an error message to stderr.
+
+```
+#!/bin/bash
+
+echo "Looking for 'rishabdoshi' in the words file, output below"
+cat tmpwords.txt | grep "rishabdoshi"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened, writing to STDERR" >&2
+fi
+
+```
+
+All the three streams; stdin , stdout and stderr 
+* stdin(0)
+* stdout(1)
+* stderr(2)
+
+So when you want to write to the stderr, you just say echo "err_msg" to address of stderr which is denoted by >&2
