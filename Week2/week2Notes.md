@@ -1,4 +1,3 @@
-https://forms.gle/ySWYFYGkLj1doALG8
 
 # To Be Updated
 # Week 2 - Lecture 1
@@ -79,7 +78,8 @@ Ex: Uber shows trip fare in Dollars when I am in LA and in Rupees when I am in I
 	* `LC_COLLATE='en_US'`: sorting is case insensitive except when the two strings are otherwise equal and one has an uppercase letter earlier than the other.
 	* Example:
 		 
-		 `en_us`  | `C`
+		 
+`en_us`  | `C`
 ------------- | -------------
 A  | A
 a  | Z
@@ -334,7 +334,7 @@ Compare sorted files line by line.
 * stdout
 * stderr(defaults to stdout)
 
-<img src='./streams.png' style="width:240px;height:160px" border=1px>
+<img src='.img/streams.png' style="width:240px;height:160px" border=1px>
 
 ### Redirecting to a File
 * Normally, we will get our output on the screen, which is convenient most of the time, but sometimes we may wish to save it into a file to keep as a record, feed into another system, or send to someone else.
