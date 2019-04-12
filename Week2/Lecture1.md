@@ -1,5 +1,4 @@
 
-# To Be Updated
 # Week 2 - Lecture 1
 
 
@@ -105,6 +104,8 @@ z | z
 * Characters that are needed for a specific purpose are grouped into a character set. 
 * Many different character encodings : UTF-8, ASCII 
 * Many different character sets : ASCII, Unicode
+
+### Types of ecodi
 
 ## Wildcards Recap
 
@@ -396,7 +397,7 @@ $ echo "$a"
 $ echo `$a`
 ```
 
-## Shell Scripting Basics
+## Shell Scripting Basics (check notebook on shell scripting - learningByDoing)
 
 * Shell is a user-interface to the Operating System
 * Accepts commands as text, interprets them and uses OS API to open files, start program, send packets over the network
