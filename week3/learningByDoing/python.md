@@ -1,4 +1,8 @@
+# Learning by doing - python
 
+* Spring 2019, CS35L - Lab 7
+* TA: Rishab Ketan Doshi
+* Week 3, Lecture 1, April 16
 
 ### Example 1 - Variables + Typing
 Create a file `variables_types.py` with the below content.
