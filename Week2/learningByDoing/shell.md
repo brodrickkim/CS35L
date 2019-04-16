@@ -16,7 +16,9 @@ echo "Hello World :D"
 
 * Try running the file using `./helloWorld.sh`.
 * Any errors?
+* Before fixing error , run the command `echo $?`  (note the output number) (we'll discuss this again)
 * Fix by making sure that file contains executable permission
+
 
 ```
 chmod +x helloWorld.sh
@@ -144,7 +146,7 @@ echo "The sum is $sum"
 
 Details: nth argument(starting from 1 not 0) can be accessed by $n. If n > 9, then use {} => use `echo "10th arg is {10}"`
 
-#### Example - 6 (if, else statements)
+#### Example - 6 (if, else statements ; case esac )
 
 Copy paste below code into the file `greater.sh`
 
@@ -162,10 +164,102 @@ fi
 ```
 
 * What is $1, $2, $#?
+
 * What is -gt?
 
+```
+#!/bin/sh
 
-#### Example 6 - Loops
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+   echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+   echo "a is less than b"
+else
+   echo "None of the condition met"
+fi
+```
+
+* Check and see what `case ... esac` is.
+
+```
+CARS="bmw"
+  
+#Pass the variable in string 
+case "$CARS" in 
+    #case 1 
+    "mercedes") echo "Headquarters - Affalterbach, Germany" ;; 
+      
+    #case 2 
+    "audi") echo "Headquarters - Ingolstadt, Germany" ;; 
+      
+    #case 3 
+    "bmw") echo "Headquarters - Chennai, Tamil Nadu, India" ;; 
+esac 
+
+```
+
+#### Example 7 - Arrays
+
+src - https://www.geeksforgeeks.org/array-basics-shell-scripting-set-1/
+
+```
+#! /bin/bash 
+# To declare static Array 
+arr=(prakhar ankit 1 rishabh manish abhinav) 
+
+# To print all elements of array 
+echo ${arr[@]}	 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[*]}	 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[@]:0} # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[*]:0} # prakhar ankit 1 rishabh manish abhinav 
+
+# To print first element 
+echo ${arr[0]}	 # prakhar 
+echo ${arr}		 # prakhar 
+
+# To print particular element 
+echo ${arr[3]}	 # rishabh 
+echo ${arr[1]}	 # ankit 
+
+# To print elements from a particular index 
+echo ${arr[@]:0} # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[@]:1} # ankit 1 rishabh manish abhinav 
+echo ${arr[@]:2} # 1 rishabh manish abhinav 
+echo ${arr[0]:1} # rakhar 
+
+# To print elements in range 
+echo ${arr[@]:1:4} # ankit 1 rishabh manish 
+echo ${arr[@]:2:3} # 1 rishabh manish 
+echo ${arr[0]:1:3} # rak 
+
+# Length of Particular element 
+echo ${#arr[0]}	 # 7 
+echo ${#arr}	 # 7 
+
+# Size of an Array 
+echo ${#arr[@]}	 # 6 
+echo ${#arr[*]}	 # 6 
+
+# Search in Array 
+echo ${arr[@]/*[aA]*/} # 1 
+
+# Replacing Substring Temporary 
+echo ${arr[@]//a/A}	 # prAkhAr Ankit 1 rishAbh mAnish AbhinAv 
+echo ${arr[@]}		 # prakhar ankit 1 rishabh manish abhinav 
+echo ${arr[0]//r/R}	 # pRakhaR 
+
+```
+
+
+#### Example 8 - Loops
 
 Copy paste below code into the file 'loops.sh'
 
@@ -180,7 +274,7 @@ Learn syntax of :
 
 #while loop illustration
 
-echo "While loop below\n"
+echo "While loop below"
 COUNT=6
 while [ $COUNT -gt 0 ] 
 do
@@ -190,7 +284,7 @@ done
 
 #for loop illustration
 
-echo "\nFor loop below\n"
+echo "For loop below"
 
 files=`ls`
 for f in $files 
@@ -199,7 +293,9 @@ echo $f
 done
 ```
 
-#### Example 7 - Debugging shell scripts
+* we have `break` and `continue` in shell too - check them out
+
+#### Example 9 - Debugging shell scripts
 
 You can debug your shell scripts by setting execution tracing to on or off.
 
@@ -230,3 +326,168 @@ Alternatively, you can start your shell script with the -x flag as below:
 ```
 bash -x loops.sh 
 ```
+
+#### Example 10 - Iterating through commandline arguments
+
+```
+#!/bin/bash
+for var in "$@"
+do
+    echo "$var"
+done
+```
+
+#### Example 11 - Iterating through files in the current directory using `ls`
+
+```
+#!/bin/bash
+for var in `ls`
+do
+    echo "$var"
+done
+```
+
+
+#### Example 12 - Exit status in shell scripts
+
+Typical Values Of Exit Status On Bourne Shell
+0 – Success.
+1 – A built-in command failure.
+2 – A syntax error has occurred.
+3 – Signal received that is not trapped
+
+We can use these to decide control of next statements in the shell script.
+
+Mainly concerned with status 0 or not.
+
+Create a file `tmpwords.txt` with below content
+
+
+```
+cherishable
+flourishable
+imperishability
+imperishable
+imperishableness
+imperishably
+nonperishable
+nonperishables
+nourishable
+perishability
+perishabilty
+perishable
+perishableness
+perishables
+perishably
+unnourishable
+unperishable
+unperishableness
+unperishably
+```
+
+Try out this shell script
+
+`$?` - status of previous command
+
+```
+
+#!/bin/bash
+
+echo "Looking for 'rishab' in the words file , output below"
+cat tmpwords.txt | grep "rishab"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened"
+fi
+
+
+echo "Looking for 'rishabdoshi' in the words file, output below"
+cat tmpwords.txt | grep "rishabdoshi"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened"
+	echo "Status code was $?" # what does this print? How do you explain this?
+fi
+
+
+```
+
+#### Example 13 - Shell script reading from STDIN 
+
+* Commands inherit their standard input from the process that starts them. 
+* When our script provides a standard input for each command that it runs, the shell automatically reads from stdin. 
+
+`searchRishab.sh` has below content
+
+```
+#!/bin/sh
+
+grep 'rishab'
+```
+
+Then below commands are equivalent:
+
+```
+cat tmpwords.txt | grep 'rishab'
+```
+
+is the same as
+
+```
+cat tmpwords.txt | ./searchRishab.sh
+```
+
+#### Example 14 - Exiting with a status code
+
+
+create a file `status.sh`
+
+```
+#!/bin/sh
+
+#some error occured
+exit 127 #this is how to exit with a status code
+```
+
+Run below commands
+
+* `./status/sh`
+* `echo $?` -> gives 127
+
+Standard Error Codes:
+https://www.tldp.org/LDP/abs/html/exitcodes.html
+
+
+#### Example 15 - Writing to stderr
+
+Consider same example as 12 above.
+
+We will modify the script so that, whenever we have a non-zero exit code we just print an error message to stderr.
+
+```
+#!/bin/bash
+
+echo "Looking for 'rishabdoshi' in the words file, output below"
+cat tmpwords.txt | grep "rishabdoshi"
+
+if [ $? -eq 0 ] 
+then
+	echo "Status code was 0, all good" 
+else
+	echo "Status code was non zero, something bad has happened, writing to STDERR" >&2
+fi
+
+```
+
+All the three streams; stdin , stdout and stderr 
+* stdin(0)
+* stdout(1)
+* stderr(2)
+
+So when you want to write to the stderr, you just say echo "err_msg" to address of stderr which is denoted by >&2
