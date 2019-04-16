@@ -4,7 +4,7 @@
 * TA: Rishab Ketan Doshi
 * Week 3, Lecture 1, April 16
 
-### Example 1 - Variables + Typing
+### Example 1 - Variables + Typing + Print
 Create a file `variables_types.py` with the below content.
 
 ```
@@ -22,6 +22,23 @@ print(type(score))
 score = "great score"
 print(score)
 print(type(score))
+
+#print with different options
+
+#
+print('U','C','L','A', sep='*') 
+
+print("new example below")
+print(‘U',’C', sep='', end=‘*') 
+print(‘LA’) 
+print("new example below")
+print('09','12', sep='-', end='-2016n') 
+print("new example below")
+print(‘rishab’,’doshi', sep=‘.', end='@') 
+print(‘ucla') 
+
+
+
 ```
 
 Execute this file by typing
