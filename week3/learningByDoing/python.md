@@ -29,13 +29,13 @@ print(type(score))
 print('U','C','L','A', sep='*') 
 
 print("new example below")
-print(‘U',’C', sep='', end=‘*') 
-print(‘LA’) 
+print('U','C', sep='', end='*') 
+print('LA') 
 print("new example below")
 print('09','12', sep='-', end='-2016n') 
 print("new example below")
-print(‘rishab’,’doshi', sep=‘.', end='@') 
-print(‘ucla') 
+print(‘rishab',’doshi', sep='.', end='@') 
+print('ucla') 
 
 
 
@@ -169,7 +169,6 @@ str = '0123456789'
 print(str[:])
 print(str[0:4])	
 print(str[1:])
-print(str[
 
 ```
 
