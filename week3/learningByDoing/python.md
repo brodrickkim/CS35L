@@ -217,6 +217,14 @@ print(getFounder("slytherin"))
 print(getFounder("stark"))
 
 ```
+To raise your own exceptions, you can look at the following examples:
+
+```
+x = 10
+if x > 5:
+    raise Exception('x should not exceed 5. The value of x was: {}'.format(x))
+```
+
 
 ### Example 10 - Raw Input
 
