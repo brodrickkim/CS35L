@@ -142,6 +142,8 @@ for h in houses:
 for i in range(len(houses)):
 	print(i)
 
+print(len(hogwarts_dict))
+print(len(hogwarts_dict.keys()))
 ```
 
 * Run `python for.py`
