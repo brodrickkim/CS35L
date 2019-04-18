@@ -252,7 +252,7 @@ print(getFounder("invalidHouse"))
 
 ```
 
-### Example 12 - name == main
+### Example 11 - name == main
 
 * create a file `foo.py` with the below content. 
 * Execute it to understand what is happening.
@@ -281,6 +281,6 @@ print("after __name__ guard")
 * [srd](https://stackoverflow.com/questions/419163/what-does-if-name-main-do)
 
 
-### Example 11 - Argparse Library
+### Example 12 - Argparse Library
 
 Head over to this [tutorial](https://www.pythonforbeginners.com/argparse/argparse-tutorial).
