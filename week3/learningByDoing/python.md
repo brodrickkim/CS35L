@@ -4,7 +4,7 @@
 * TA: Rishab Ketan Doshi
 * Week 3, Lecture 1, April 16
 
-### Example 1 - Variables + Typing + Print
+### Example 1 - Variables + Typing
 Create a file `variables_types.py` with the below content.
 
 ```
@@ -22,22 +22,6 @@ print(type(score))
 score = "great score"
 print(score)
 print(type(score))
-
-#print with different options
-
-#
-print('U','C','L','A', sep='*') 
-
-print("new example below")
-print('U','C', sep='', end='*') 
-print('LA') 
-print("new example below")
-print('09','12', sep='-', end='-2016n') 
-print("new example below")
-print(‘rishab',’doshi', sep='.', end='@') 
-print('ucla') 
-
-
 
 ```
 
@@ -208,8 +192,66 @@ hogwarts_dict['ravenclaw'] = 'rowena_ravenclaw'
 hogwarts_dict['hufflepuff'] = 'helga_hufflepuff'
 
 print(getDictKeysAsList(hogwarts_dict))
+
 ```
 
-### Example 9 - Argparse Library
+### Example 9 - Exception Handling
+
+* create `newdict.py`
+
+```
+def getFounder(housename):
+	hogwarts_dict = {}
+	hogwarts_dict['slytherin'] = 'salazar_slytherin'
+	hogwarts_dict['gryffindor'] = 'godric_gryffindor'
+	hogwarts_dict['ravenclaw'] = 'rowena_ravenclaw'
+	hogwarts_dict['hufflepuff'] = 'helga_hufflepuff'
+	
+	try:
+		founder = hogwarts_dict[housename]
+		return founder
+	except KeyError:
+		return "Invalid housename given"
+	
+print(getFounder("slytherin"))
+print(getFounder("stark"))
+
+```
+
+### Example 10 - Raw Input
+
+```
+hogwarts_dict = {}
+
+hogwarts_dict['slytherin'] = 'salazar_slytherin'
+hogwarts_dict['gryffindor'] = 'godric_gryffindor'
+hogwarts_dict['ravenclaw'] = 'rowena_ravenclaw'
+hogwarts_dict['hufflepuff'] = 'helga_hufflepuff'
+
+def addFounder(house, founder):
+	hogwarts_dict[house]=founder
+	return
+
+def getFounder(housename):	
+	try:
+		founder = hogwarts_dict[housename]
+		return founder
+	except KeyError as ke:
+		print(ke)
+		return "Invalid housename given"
+
+print("Enter the house name")
+house = raw_input()
+print("Enter the founders name")
+founder = raw_input()
+
+addFounder(house,founder)
+print("Getting founder of input")
+print(getFounder(house))
+print(getFounder("invalidHouse"))
+
+```
+
+### Example 11 - Argparse Library
 
 Head over to this [tutorial](https://www.pythonforbeginners.com/argparse/argparse-tutorial).
