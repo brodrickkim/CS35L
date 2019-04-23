@@ -9,12 +9,11 @@
 * Many of the examples below are taken / extended from geeksforgeeks.org
 
 ## Index
-1. [Basics](##Basics)
-2. [Pointers](##Pointers)
-3. [structs](##Structs)
-4. [Dynamic Memory](##DynamicMemory)
-5. [getChar, putchar](##getChar,putChar)
-6. [Formatted I/O](##formattedIO)
+1. Basics
+2. Pointers
+3. structs
+4. Dynamic Memory
+5. getChar, putchar
 
 ## Basics
 
