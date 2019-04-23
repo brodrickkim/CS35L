@@ -325,7 +325,7 @@ int main()
 
 ```
 
-### Example 12 - Polymorphism using Function Pointers
+### Example 10 - Polymorphism using Function Pointers
 
 What is polymorphism?
 
