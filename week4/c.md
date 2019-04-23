@@ -37,7 +37,7 @@
 
 Create filename : `dataTypes.c`
 
-```
+```c
 #include <stdio.h> 
 int main() 
 { 
@@ -81,7 +81,7 @@ create file: `pointerBasics.c`
 
 [src](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)	
 
-```
+```c
 #include <stdio.h>
 
 int main () {
@@ -108,7 +108,7 @@ int main () {
 ### Example 3 - Mulitple Level of Pointers
 
 
-```
+```c
 #include<stdio.h>
 
 int main() {
@@ -151,7 +151,7 @@ int main() {
 
 ### Example 4 - Pointers and 1-D Arrays
 
-```
+```c
 #include<stdio.h>
 
 int main() {
@@ -194,7 +194,7 @@ int main() {
 
 [src](https://www.geeksforgeeks.org/pointer-array-array-pointer/)
 
-```
+```c
 // C program to print the values and 
 // address of elements of a 2-D array 
 #include<stdio.h> 
@@ -234,7 +234,7 @@ return 0;
 
 Since memory in computer is organized linearly it is not possible to store an multi-dimensional array in rows and columns. The concept of rows and columns is only theoretical, actually a 2-D/3-D array is stored in row major order i.e rows are placed next to each other. The following figure shows how the below 3-D array will be stored in memory.
 
-```
+```c
 int arr[2][3][2] = { {{5, 10}, {6, 11}, {7, 12}}, {{20, 30}, {21, 31}, {22, 32}} };
 
 ```
@@ -243,7 +243,7 @@ int arr[2][3][2] = { {{5, 10}, {6, 11}, {7, 12}}, {{20, 30}, {21, 31}, {22, 32}}
 
 ### Example 7 - Pointers and Character Arrays
 
-```
+```c
 #include<stdio.h>
 
 char *c[] = {"the","quick brown fox", "jumped", "over the", "lazy dog"};
@@ -269,7 +269,7 @@ int main() {
 
 * Can also have pointers pointing to executable code like functions in C.
 
-```
+```c
 #include <stdio.h> 
 // A normal function with an int parameter 
 // and void return type 
@@ -301,7 +301,7 @@ int main()
 ### Example 9 - Function Pointer as an argument
 Function pointers can be passed as arguments to a function, which can then invoke these functions. These intermediate functions are called wrapper functions.
 
-```
+```c
 // A simple C program to show function pointers as parameter 
 #include <stdio.h> 
 
@@ -339,7 +339,7 @@ Ex:
 
 Below is a simple example of Polymorphism in C implemented using function pointers.
 
-```
+```c
 #include <stdio.h>
 
 int tripple(int a) {
@@ -373,7 +373,7 @@ int main() {
 ### Example 11 - QSort example
 QSort is a wrapper function, which sorts based on <b>ordering</b> logic provided by a function pointer.
 
-```
+```c
 #include <stdio.h> 
 #include <stdlib.h> 
 
@@ -418,7 +418,7 @@ return 0;
 * Structs can be used to create custom data-types
 * Can be used with all programming-constructs defined so far like function arguments, pointers, return types etc.
 
-```
+```c
 #include<stdio.h> 
 
 struct Point 
@@ -451,7 +451,7 @@ return 0;
 <a href="https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/" ><img src="./malloc.png"></a>
 
 
-```
+```c
 
 #include <stdio.h> 
 #include <stdlib.h> 
@@ -503,7 +503,7 @@ int main()
 
 "free" method is used to dynamically de-allocate the memory. The memory allocated using functions `malloc()` and `calloc()` are not de-allocated on their own. Hence the free() method is used, whenever the dynamic memory allocation takes place. It helps to reduce wastage of memory by freeing it.
 
-```
+```c
 
 #include <stdio.h> 
 #include <stdlib.h> 
@@ -550,7 +550,7 @@ int main()
 
 <a href="https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/" ><img src="./realloc.png"></a>
 
-```
+```c
 #include <stdio.h> 
 #include <stdlib.h> 
 
@@ -624,7 +624,7 @@ int main()
 
 ### Example 16 - Getchar , Putchar
 
-```
+```c
 #include <stdio.h>
 #include <ctype.h>
 int main()
@@ -645,7 +645,7 @@ If you're typing at the terminal and you want to provoke an end-of-file, use CTR
 
 ### Example 17 - fprintf, fscanf
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -661,7 +661,7 @@ int main () {
 }
 ```
 
-```
+```c
 /* Sample C program to demonstrate use of *s */
 #include<stdio.h> 
 int main() 
@@ -686,7 +686,7 @@ bef     25    delhi
 cce     65    bangalore  
 ```
 
-```
+```c
 /*c program demonstrating fscanf and its usage*/
 #include<stdio.h> 
 int main() 
