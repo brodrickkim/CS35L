@@ -642,3 +642,73 @@ int main()
 ```
 
 If you're typing at the terminal and you want to provoke an end-of-file, use CTRL-D (unix-style systems) or CTRL-Z (Windows). Then after all the input has been read, getchar() will return EOF , and hence getchar() != EOF will be false, and the loop will terminate. 
+
+### Example 17 - fprintf, fscanf
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+   FILE * fp;
+
+   fp = fopen ("file.txt", "w+");
+   fprintf(fp, "%s %s %s %d", "We", "are", "in", 2012);
+   
+   fclose(fp);
+   
+   return(0);
+}
+```
+
+```
+/* Sample C program to demonstrate use of *s */
+#include<stdio.h> 
+int main() 
+{ 
+	int a; 
+	scanf("%*s %d", &a); 
+	printf("Input value read : a=%d",a); 
+	return 0; 
+} 
+
+// Input: "blablabla 25" 
+// Output: Value read : 25 
+
+```
+
+* `abc.txt`
+
+```
+NAME    AGE   CITY
+abc     12    hyderbad
+bef     25    delhi
+cce     65    bangalore  
+```
+
+```
+/*c program demonstrating fscanf and its usage*/
+#include<stdio.h> 
+int main() 
+{ 
+	FILE* ptr = fopen("abc.txt","r"); 
+	if (ptr==NULL) 
+	{ 
+		printf("no such file."); 
+		return 0; 
+	} 
+
+	/* Assuming that abc.txt has content in below 
+	format 
+	NAME AGE CITY 
+	abc	 12 hyderbad 
+	bef	 25 delhi 
+	cce	 65 bangalore */
+	char* buf[100]; 
+	while (fscanf(ptr,"%*s %*s %s ",buf)==1) 
+		printf("%s\n", buf); 
+
+	return 0; 
+} 
+
+```
