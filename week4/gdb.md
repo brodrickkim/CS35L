@@ -153,6 +153,8 @@ If you like, you can also specify which particular breakpoint to disable: `disab
 
 ## Example 2 - Backtrace
 
+Extended from this file [here](https://www.thegeekstuff.com/2014/01/gdb-backtrace/)
+
 ```cpp
 #include<stdio.h>	 	 
 void func1();	 	 
