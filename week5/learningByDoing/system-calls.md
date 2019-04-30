@@ -1,12 +1,11 @@
 # System Calls
 
-Using a lower level function, a system call, to write directly to the standard out device, i.e., the terminal window. The system call that writes to a file or device is write(). Bellow, is a the system call hello world:
-
 ## References
 * Read, Write - https://www.usna.edu/Users/cs/aviv/classes/ic221/s18/units/04/unit.html#orgf339059
 * Open, Close - https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
 
 ## write
+Using a lower level function, a system call, to write directly to the standard out device, i.e., the terminal window. The system call that writes to a file or device is write(). Bellow, is a the system call hello world:
 
 
 ```c
