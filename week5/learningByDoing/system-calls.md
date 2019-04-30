@@ -23,6 +23,24 @@ int main(int argc, char * argv[]){
 }
 ```
 
+```c
+#include <unistd.h>
+
+int main(int argc, char * argv[]){
+  char hello[] = "Hello World\n";
+  char *p;
+
+  for(p = hello ; *p ; p++){
+     write(1, p, 1); 
+  }
+
+  for(p=hello; *p ; p+=2) {
+     write(1,p,2);
+  }
+
+}
+```
+
 ```
 //    .-- Write to standard out, file descriptor 1
 //    v
