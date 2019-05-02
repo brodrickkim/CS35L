@@ -91,7 +91,7 @@ int main(void)
 
 ### Example 2 - File Type, File Size, Modification Time.
 
-```
+```c
 #include <stdio.h> 
 #include <sys/types.h> 
 #include <sys/stat.h> 
