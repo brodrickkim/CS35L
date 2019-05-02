@@ -137,3 +137,18 @@ int main()
 * Check if file has grown using fstat before and after reading the file using system calls.
 * If file has grown, use lseek to move to the point from where you need to start reading the file again.
 
+## fsanitize
+
+* Memory error detector in C/C++
+* Used as a flag when you compile your code
+* Adds extra checks to your code, will affect performance, as some extra checks are being added. But not significant hit to performance.
+
+Compile lseek.c with below command
+
+```sh
+gcc -ggdb -o lseek lseek.c -fsanitize=address -fno-omit-frame-pointer -static-libasan
+```
+
+Try running this executable `./lseek`
+
+More information [here](https://github.com/google/sanitizers/wiki/AddressSanitizer)
