@@ -85,7 +85,7 @@ int main()
 <this_content_starts_at_110_bytes_from_top>
 ```
 
-```
+```c
 #include<stdio.h>
 #include <fcntl.h>
 int main()
