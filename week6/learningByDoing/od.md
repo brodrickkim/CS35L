@@ -140,3 +140,47 @@ od -An -b -w1 -v < input.txt
 ```
 
 ## Example 6
+
+```
+od -An -w2 -v -o -t d2 < input.txt
+```
+
+output
+
+```
+030061
+  12337
+ 005060
+   2608
+ 030061
+  12337
+ 005061
+   2609
+ 030061
+  12337
+ 005062
+   2610
+ 030061
+  12337
+ 005063
+   2611
+ 030061
+  12337
+ 005064
+   2612
+ 030061
+  12337
+ 005065
+   2613
+ 030061
+  12337
+ 005060
+   2608
+```
+
+Explanation:
+
+The odd numbered rows are the octal representation of the bytes(-o) as we saw above and the even numbered lines are the decimal representation of these numbers(-d2).
+
+## Lab Hints
+* Check man page to see how you can use od to create floating point numbers(-fF)?
