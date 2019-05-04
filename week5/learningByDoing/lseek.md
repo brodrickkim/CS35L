@@ -136,6 +136,7 @@ int main()
 * How to use lseek on a growing file?
 * Check if file has grown using fstat before and after reading the file using system calls.
 * If file has grown, use lseek to move to the point from where you need to start reading the file again.
+* Note: As pointed out in this [piazza post](https://piazza.com/class/jtywy64ktv02z1?cid=332), lseek is not necessary to solve the homework.
 
 ## fsanitize
 
