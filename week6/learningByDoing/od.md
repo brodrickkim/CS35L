@@ -183,4 +183,6 @@ Explanation:
 The odd numbered rows are the octal representation of the bytes(-o) as we saw above and the even numbered lines are the decimal representation of these numbers(-d2).
 
 ## Lab Hints
-* Check man page to see how you can use od to create floating point numbers(-fF)?
+* Check man page to see how you can use od to create floating point numbers(-f)?
+* In the od command, How do you specify number of bytes to be read in?
+* We used input.txt in all the examples here. We need to read from another file for our lab [/dev/urandom](https://en.wikipedia.org/wiki//dev/random)
